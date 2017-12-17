@@ -1,0 +1,37 @@
+
+#Author: Deepak gupta (email id - dgupta22@ncsu.edu)
+#input the number of documents you want to create
+#each document will have 50 rows of random words with
+#5 words in each row. document name will be doc1, doc2, doc3 so on....
+
+print_words()
+{
+    X=0
+    Y=50
+    randomWords="doc$1"
+    while [ "$X" -lt "$Y" ] 
+    do
+        temp=`cat -n /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 5 | head -n 1`
+        echo -n $temp>> $randomWords
+        echo -n " ">> $randomWords
+        temp=`cat -n /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 6 | head -n 1`
+        echo -n $temp>> $randomWords
+        echo -n " ">> $randomWords
+        temp=`cat -n /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 7 | head -n 1`
+        echo -n $temp>> $randomWords
+        echo -n " ">> $randomWords
+        temp=`cat -n /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 8 | head -n 1`
+        echo -n $temp>> $randomWords
+        echo -n " ">> $randomWords
+        cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 5 | head -n 1 >> $randomWords 
+        X=`expr $X + 1`
+    done
+}
+
+doc=1
+while [ "$doc" -lt "$1" ]
+do
+    print_words $doc
+    echo "doc$doc written"
+    doc=`expr $doc + 1`
+done

@@ -1,0 +1,5 @@
+all:
+	mpicc -fopenmp -o TFIDF TFIDF_mpi_omp.c -lm -O3
+
+clean:
+	rm -f TFIDF
