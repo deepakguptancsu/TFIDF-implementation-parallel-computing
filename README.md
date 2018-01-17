@@ -3,6 +3,7 @@
 TFIDF (term frequency - inverse document frequency) is a numerical statistic that reflects how important a word is to a document in a corpus. It is often used as a weighting factor in searches of information retrieval, text mining, and user modeling.
 
 Term Frequency = WordCount/docsize
+
 Inverse Document Frequency = log(number of documents/ number of documents with word)
 
 Serial Implementation - the serial code for calculating TFIDF of each word is implemented by using C. The code reads a document. I then calculates how many times a word appears in a document, the document size and how many documents are there containing the word. The code then calculates the TFIDF values for each word@document.
